@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=1.0">
+
+	<title>Document</title>
+
+	<script>
+		window.onload = function () {
+
+
+		};
+
+		function clickAction() {
+			window.location.href='#js_call://share';
+		}
+
+		function callOC(func,param){  
+	        var iframe = document.createElement("iframe"); 
+
+	        var url= "pickhelper:" + func;  
+	        for(var i in param)  
+	        {  
+	            url = url + "&" + i + "=" + param[i];  
+	        }  
+	        iframe.src = url;  
+	        iframe.style.display = 'none';  
+	        document.body.appendChild(iframe);  
+	        iframe.parentNode.removeChild(iframe);  
+	        iframe = null;  
+		}
+
+	</script>
+
+</head>
+<body>
+	<button style="width: 200px; height: 50px; background-color: yellow" onclick="callOC('share',{'url':'https://baidu.com','name':'lsj'})">点我</button>
+</body>
+</html>
